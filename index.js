@@ -122,8 +122,8 @@ async function createTag(dir, config, version) {
 }
 
 async function publishPackage(dir, config, version) {
-    console.log(`GITHUB_TOKEN: ${getEnv(GITHUB_TOKEN)}`);
-    console.log(`NPM_AUTH_TOKEN: ${getEnv(NPM_AUTH_TOKEN)}`);
+    console.log(`GITHUB_TOKEN: ${getEnv("GITHUB_TOKEN")}`);
+    console.log(`NPM_AUTH_TOKEN: ${getEnv("NPM_AUTH_TOKEN")}`);
   await run(
     dir,
     "yarn",
