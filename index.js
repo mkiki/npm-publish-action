@@ -124,6 +124,7 @@ async function createTag(dir, config, version) {
 async function publishPackage(dir, config, version) {
    console.log(`version: ${version}`);
 
+   /*
   console.log("Publish npm");
   await run(
     dir,
@@ -132,9 +133,8 @@ async function publishPackage(dir, config, version) {
     "--verbose",
     "--access", "public"
   );
+  */
 
-  /*
-  console.log("Publish yarn");
   await run(
     dir,
     "yarn",
@@ -145,7 +145,6 @@ async function publishPackage(dir, config, version) {
     "--new-version",
     version
   );
-  */
 
   console.log("Version has been published successfully:", version);
 }
