@@ -132,14 +132,33 @@ async function publishPackage(dir, config, version) {
     console.log(`github: ${getEnv("GITHUB_TOKEN")}`);
     console.log(`npm: ${getEnv("NPM_AUTH_TOKEN")}`);
     console.log(`tok: ${tok2}`);
-    console.log(`version: ${version}`);
     */
+   console.log(`version: ${version}`);
+
+   console.log("Changing access");
+   await run(
+      dir,
+      "npm",
+      "access",
+      "public",
+      "@adobe/acc-js-sdk"
+  );
+
+  console.log("Publish npm");
+  await run(
+    dir,
+    "npm",
+    "publish",
+    "--access", "public"
+);
+
+console.log("Publish yarn");
   await run(
     dir,
     "yarn",
     "publish",
     "--verbose",
-    "--access public",
+    "--access", "public",
     "--non-interactive",
     "--new-version",
     version
