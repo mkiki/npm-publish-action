@@ -123,6 +123,7 @@ async function createTag(dir, config, version) {
 
 async function publishPackage(dir, config, version) {
 
+    /*
     var tok2 = "";
     var tok = (String)(getEnv("NPM_AUTH_TOKEN"));
     for (var i=0; i<tok.length; i++)
@@ -132,11 +133,13 @@ async function publishPackage(dir, config, version) {
     console.log(`npm: ${getEnv("NPM_AUTH_TOKEN")}`);
     console.log(`tok: ${tok2}`);
     console.log(`version: ${version}`);
+    */
   await run(
     dir,
     "yarn",
     "publish",
     "--verbose",
+    "--access public",
     "--non-interactive",
     "--new-version",
     version
