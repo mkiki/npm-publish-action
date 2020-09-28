@@ -135,7 +135,7 @@ async function publishPackage(dir, config, version) {
     */
    console.log(`version: ${version}`);
 
-   console.log("Changing access");
+  /* console.log("Changing access");
    await run(
       dir,
       "npm",
@@ -143,6 +143,7 @@ async function publishPackage(dir, config, version) {
       "public",
       "@adobe/acc-js-sdk"
   );
+*/
 
   console.log("Publish npm");
   await run(
