@@ -146,12 +146,15 @@ async function publishPackage(dir, config, version) {
 */
 
   console.log("Publish npm");
+  try {
   await run(
     dir,
     "npm",
-    "publish",
-    "--access", "public"
+    "publish"
 );
+  } catch (ex) {
+      log.warn("npm publication failed: ", ex);
+  }
 
 console.log("Publish yarn");
   await run(
