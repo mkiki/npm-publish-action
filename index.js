@@ -24,7 +24,8 @@ async function main() {
     commitPattern,
     tagName: placeholderEnv("TAG_NAME", "v%s"),
     tagMessage: placeholderEnv("TAG_MESSAGE", "v%s"),
-    tagAuthor: { name, email }
+    tagAuthor: { name, email },
+    runInstallFirst: getEnv("RUN_INSTALL_FIRST") || "false"
   };
 
   await processDirectory(dir, config, eventObj.commits);
@@ -134,6 +135,15 @@ async function publishPackage(dir, config, version) {
     "--access", "public"
   );
   */
+
+  if (config.runInstallFirst === "true") {
+    await run(
+      dir,
+      "yarn",
+      "install",
+      "--verbose"
+    );
+  }
 
   await run(
     dir,
